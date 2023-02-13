@@ -1,0 +1,235 @@
+ScreenManager:
+    MenuScreen:
+    GlownaScreen:
+    KomplementarnaScreen:
+    WynikScreen:
+    NaukaScreen1:
+    NaukaScreen2:
+
+
+<odp>
+    Label:
+        id:pop_komunikat
+        text: str(root.checked.kom_lek)
+
+        size_hint: 0.6, 0.2
+        font_size :34
+        pos_hint: {"x":0.2, "top":0.7}
+
+<P>
+    Label:
+        id:pop_komunikat
+        text: "Zła wartość lub \n Brak wartości"
+
+        size_hint: 0.6, 0.2
+        font_size :34
+        pos_hint: {"x":0.2, "top":0.7}
+
+<MenuScreen>:
+    MDLabel:
+        text:'Program do nauki\n  sprzedaży\n komplementarnej'
+        halign:'center'
+        pos_hint:{'center_x':0.5, 'center_y':0.8}
+        font_size :38
+
+    MDRectangleFlatButton:
+        text:'Exit'
+        pos_hint:{'center_x':0.5, 'center_y':0.3}
+        on_press: app.stop()
+
+    MDRectangleFlatButton:
+        text:'Sprawdź swoją sprzedaż'
+        pos_hint:{'center_x':0.5, 'center_y':0.5}
+        # on_press: root.validate_user()
+        on_press: root.manager.current = 'glowna'
+        
+    MDRectangleFlatButton:
+        text:'Wyszukaj / Nauka'
+        pos_hint:{'center_x':0.5, 'center_y':0.4}
+        on_press: root.manager.current = 'nauka1'
+
+<GlownaScreen>:
+    MDLabel:
+        text:'Tabela Główna'
+        halign:'center'
+        pos_hint:{'center_x':0.5, 'center_y':0.9}
+
+    MDTextField:
+        id: glowny_input_text
+        mode: "rectangle"
+        helper_text: "Podaj nazwę leku, który chcesz wyszukać w tabeli głównej"
+        helper_text_mode: "on_focus"
+        pos_hint:{'center_x':0.4, 'center_y':0.85}
+        size_hint:(0.7, None)
+        on_text_validate: root.popup()
+
+    MDRectangleFlatButton:
+        id:szukaj_g
+        text:'Szukaj'
+        pos_hint:{'center_x':0.9, 'center_y':0.85}
+        on_press: root.popup()
+
+    MDLabel:
+        text:'Proszę czekać,\nTrwa ładowanie tabeli'
+        halign:'center'
+
+    MDRectangleFlatButton:
+        text:'Exit'
+        pos_hint:{'center_x':0.2, 'center_y':0.1}
+        on_press: app.stop()
+
+    MDRectangleFlatButton:
+        text:'Back to menu'
+        pos_hint:{'center_x':0.5, 'center_y':0.1}
+        on_press: root.manager.current = 'menu'
+
+
+
+<KomplementarnaScreen>:
+    MDRectangleFlatButton:
+        id:szukaj_kom
+        text:'Szukaj'
+        pos_hint:{'center_x':0.9, 'center_y':0.85}
+        on_press: root.popup()
+    MDTextField:
+        id: kom_input_text
+        mode: "rectangle"
+        helper_text: "Podaj nazwę leku, który chcesz wyszukać w tabeli komplementarnej"
+        helper_text_mode: "on_focus"
+        pos_hint:{'center_x':0.4, 'center_y':0.85}
+        size_hint:(0.7, None)
+        on_text_validate: root.popup()
+
+    MDLabel:
+        id:label_kom
+        text:'Tabela Komplementarna'
+        halign:'center'
+        pos_hint:{'center_x':0.5, 'center_y':0.9}
+
+    MDLabel:
+        text:'Proszę czekać,\nTrwa ładowanie tabeli'
+        halign:'center'
+
+    MDRectangleFlatButton:
+        text:'Exit'
+        pos_hint:{'center_x':0.2, 'center_y':0.1}
+        on_press: app.stop()
+
+    MDRectangleFlatButton:
+        text:'Back to menu'
+        pos_hint:{'center_x':0.5, 'center_y':0.1}
+        on_press: root.manager.current = 'menu'
+
+    MDRectangleFlatButton:
+        text:'Główna'
+        pos_hint:{'center_x':0.8, 'center_y':0.1}
+        on_press: root.manager.current = 'glowna'
+
+<WynikScreen>:
+    MDLabel:
+        id:label_wynik_1
+        text:'Tabela Komplementarna'
+        halign:'center'
+        pos_hint:{'center_x':0.5, 'center_y':0.7}
+
+    MDLabel:
+        id:label_wynik_2
+        text:'Tabela Komplementarna'
+        halign:'center'
+        pos_hint:{'center_x':0.5, 'center_y':0.6}
+
+
+    MDLabel:
+        id:label_wynik_4
+        text:'zaliczenie'
+        halign:'center'
+        pos_hint:{'center_x':0.5, 'center_y':0.4}
+
+
+    MDRectangleFlatButton:
+        text:'Exit'
+        pos_hint:{'center_x':0.2, 'center_y':0.1}
+        on_press: app.stop()
+
+    MDRectangleFlatButton:
+        text:'Back to menu'
+        pos_hint:{'center_x':0.5, 'center_y':0.1}
+        on_press: root.manager.current = 'menu'
+
+
+<NaukaScreen1>:
+    MDLabel:
+        text:'Tabela Główna'
+        halign:'center'
+        pos_hint:{'center_x':0.5, 'center_y':0.9}
+
+    MDTextField:
+        id: glowny_input_text
+        mode: "rectangle"
+        helper_text: "Podaj nazwę leku, który chcesz wyszukać w tabeli głównej"
+        helper_text_mode: "on_focus"
+        pos_hint:{'center_x':0.4, 'center_y':0.85}
+        size_hint:(0.7, None)
+        on_text_validate: root.popup()
+
+    MDRectangleFlatButton:
+        id:szukaj_g
+        text:'Szukaj'
+        pos_hint:{'center_x':0.9, 'center_y':0.85}
+        on_press: root.popup()
+
+    MDLabel:
+        text:'Proszę czekać,\nTrwa ładowanie tabeli'
+        halign:'center'
+
+    MDRectangleFlatButton:
+        text:'Exit'
+        pos_hint:{'center_x':0.2, 'center_y':0.1}
+        on_press: app.stop()
+
+    MDRectangleFlatButton:
+        text:'Back to menu'
+        pos_hint:{'center_x':0.5, 'center_y':0.1}
+        on_press: root.manager.current = 'menu'
+
+
+
+<NaukaScreen2>:
+    MDRectangleFlatButton:
+        id:szukaj_kom
+        text:'Szukaj'
+        pos_hint:{'center_x':0.9, 'center_y':0.85}
+        on_press: root.popup()
+    MDTextField:
+        id: kom_input_text
+        mode: "rectangle"
+        helper_text: "Podaj nazwę leku, który chcesz wyszukać w tabeli komplementarnej"
+        helper_text_mode: "on_focus"
+        pos_hint:{'center_x':0.4, 'center_y':0.85}
+        size_hint:(0.7, None)
+        on_text_validate: root.popup()
+
+    MDLabel:
+        id:label_kom
+        text:'Tabela Komplementarna'
+        halign:'center'
+        pos_hint:{'center_x':0.5, 'center_y':0.9}
+
+    MDLabel:
+        text:'Proszę czekać,\nTrwa ładowanie tabeli'
+        halign:'center'
+
+    MDRectangleFlatButton:
+        text:'Exit'
+        pos_hint:{'center_x':0.2, 'center_y':0.1}
+        on_press: app.stop()
+
+    MDRectangleFlatButton:
+        text:'Back to menu'
+        pos_hint:{'center_x':0.5, 'center_y':0.1}
+        on_press: root.manager.current = 'menu'
+
+    MDRectangleFlatButton:
+        text:'Główna'
+        pos_hint:{'center_x':0.8, 'center_y':0.1}
+        on_press: root.manager.current = 'nauka1'
